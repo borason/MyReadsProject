@@ -1,7 +1,7 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import Shelf from './components/Shelf.js';
+import BookShelf from './components/BookShelf.js';
 import Search from './components/Search.js';
 import SearchButton from './components/SearchButton.js';
 
@@ -16,13 +16,18 @@ class BooksApp extends React.Component {
      * pages, as well as provide a good URL they can bookmark and share.
      */
     showSearchPage: false,
+    books: [],
     }
   }
 
+componentDidMount() {
+  BooksAPI.getAll().then(resp => this.setState({books: resp}));
+  console.log(this.state.books);
+}
 
 updateSearchPageStatus = (bool) => {
   this.setState({showSearchPage: bool});
-};
+}
 
   render() {
     return (
@@ -36,7 +41,7 @@ updateSearchPageStatus = (bool) => {
             </div>
             <div className="list-books-content">
               <div>
-                <Shelf />
+                <BookShelf booksData={this.state.books} />
               </div>
             </div>
             <SearchButton openSearch={this.updateSearchPageStatus} />
