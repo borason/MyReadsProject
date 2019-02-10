@@ -1,5 +1,5 @@
 import React from 'react';
-import Shelf from './Shelf.js';
+import Shelf from './Shelf';
 
 class BookCase extends React.Component {
   componentDidMount() {
