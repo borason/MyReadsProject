@@ -1,11 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import * as BooksAPI from './../BooksAPI'
 
 class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books: [],
+    }
+  }
+  componentDidMount() {
+    BooksAPI.getAll().then(resp => this.setState({books: resp}));
+  }
   render() {
     return(
       <div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={() => this.props.closeSearch(false)}>Close</button>
+          <Link to="/">
+            <button className="close-search">Close</button>
+          </Link>
           <div className="search-books-input-wrapper">
             {/*
               NOTES: The search from BooksAPI is limited to a particular set of search terms.

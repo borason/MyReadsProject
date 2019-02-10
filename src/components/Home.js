@@ -9,20 +9,21 @@ class Home extends React.Component {
     constructor(props) {
     super(props);
     this.state = {
-    /**
-     * TODO: Instead of using this state variable to keep track of which page
-     * we're on, use the URL in the browser's address bar. This will ensure that
-     * users can use the browser's back and forward buttons to navigate between
-     * pages, as well as provide a good URL they can bookmark and share.
-     */
-    showSearchPage: false,
     books: [],
     }
+  }
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book,shelf)
+    .then(response => {
+      book.shelf = shelf;
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== book.id).concat([book])
+      }));
+    });
   }
 
   componentDidMount() {
     BooksAPI.getAll().then(resp => this.setState({books: resp}));
-    console.log(this.state.books);
   }
 
   updateSearchPageStatus = (bool) => {
@@ -40,11 +41,13 @@ class Home extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookCase booksData={this.state.books} />
+                <BookCase booksData={this.state.books} changeShelf={this.changeShelf} />
               </div>
             </div>
             <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              <Link to="/search">
+                <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+              </Link>
             </div>
           </div>
         )}

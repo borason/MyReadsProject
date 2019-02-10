@@ -2,9 +2,7 @@ import React from 'react';
 import Shelf from './Shelf';
 
 class BookCase extends React.Component {
-  componentDidMount() {
-    console.log(this);
-  }
+
   render() {
     const booksData = this.props.booksData;
     const currentBooks = booksData.filter(book => book.shelf === 'currentlyReading');
@@ -13,9 +11,9 @@ class BookCase extends React.Component {
 
     return(
       <div>
-          <Shelf name = 'Currently Reading' books = {currentBooks} />
-          <Shelf name = 'Books For Future Consideration' books = {futureBooks}/>
-          <Shelf name = 'Already Read' books = {finishedBooks}/>
+          <Shelf name = 'Currently Reading' books = {currentBooks} changeShelf={this.props.changeShelf} />
+          <Shelf name = 'Books For Future Consideration' books = {futureBooks} changeShelf={this.props.changeShelf} />
+          <Shelf name = 'Already Read' books = {finishedBooks} changeShelf={this.props.changeShelf} />
       </div>
     );
   }
