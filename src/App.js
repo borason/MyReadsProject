@@ -1,7 +1,7 @@
 import React from 'react'
 import * as BooksAPI from './BooksAPI'
 import './App.css'
-import BookShelf from './components/BookShelf.js';
+import BookCase from './components/BookCase.js';
 import Search from './components/Search.js';
 import SearchButton from './components/SearchButton.js';
 
@@ -41,7 +41,7 @@ updateSearchPageStatus = (bool) => {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShelf booksData={this.state.books} />
+                <BookCase booksData={this.state.books} />
               </div>
             </div>
             <SearchButton openSearch={this.updateSearchPageStatus} />
