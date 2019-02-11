@@ -33,7 +33,7 @@ class Home extends React.Component {
     return(
       <div className="app">
         {this.state.showSearchPage ? (
-          <Search showSearchPage={this.state.showSearchPage} closeSearch={this.updateSearchPageStatus} />
+          <Search showSearchPage={this.state.showSearchPage} closeSearch={this.updateSearchPageStatus} changeShelf={this.changeShelf} />
         ) : (
           <div className="list-books">
             <div className="list-books-title">

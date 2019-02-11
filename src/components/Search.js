@@ -43,9 +43,9 @@ class Search extends React.Component {
     });
   }
 
-  updateBook = (book, shelf) => {
-    BooksAPI.update(book, shelf)
-    .then(resp => {
+  changeShelf = (book, shelf) => {
+    BooksAPI.update(book,shelf)
+    .then(response => {
       book.shelf = shelf;
       this.setState(state => ({
         books: state.books.filter(b => b.id !== book.id).concat([book])
@@ -66,7 +66,7 @@ class Search extends React.Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {
-              this.state.results.map((book, key) => <Book updateBook={this.updateBook} book={book} key={key} />)
+              this.state.results.map((book, key) => <Book changeShelf={this.changeShelf} book={book} key={key} />)
             }
           </ol>
         </div>
