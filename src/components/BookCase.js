@@ -11,9 +11,18 @@ class BookCase extends React.Component {
 
     return(
       <div>
-          <Shelf name = 'Currently Reading' books = {currentBooks} changeShelf={this.props.changeShelf} />
-          <Shelf name = 'Books For Future Consideration' books = {futureBooks} changeShelf={this.props.changeShelf} />
-          <Shelf name = 'Already Read' books = {finishedBooks} changeShelf={this.props.changeShelf} />
+          <Shelf
+            name = 'Currently Reading'
+            books = {currentBooks}
+            changeShelf={this.props.changeShelf} />
+          <Shelf
+            name = 'Books For Future Consideration'
+            books = {futureBooks}
+            changeShelf={this.props.changeShelf} />
+          <Shelf
+            name = 'Already Read'
+            books = {finishedBooks}
+            changeShelf={this.props.changeShelf} />
       </div>
     );
   }

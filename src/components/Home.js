@@ -33,7 +33,10 @@ class Home extends React.Component {
     return(
       <div className="app">
         {this.state.showSearchPage ? (
-          <Search showSearchPage={this.state.showSearchPage} closeSearch={this.updateSearchPageStatus} changeShelf={this.changeShelf} />
+          <Search
+            showSearchPage={this.state.showSearchPage}
+            closeSearch={this.updateSearchPageStatus}
+            changeShelf={this.changeShelf} />
         ) : (
           <div className="list-books">
             <div className="list-books-title">
@@ -41,7 +44,9 @@ class Home extends React.Component {
             </div>
             <div className="list-books-content">
               <div>
-                <BookCase booksData={this.state.books} changeShelf={this.changeShelf} />
+                <BookCase
+                  booksData={this.state.books}
+                  changeShelf={this.changeShelf} />
               </div>
             </div>
             <div className="open-search">
