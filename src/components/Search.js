@@ -16,7 +16,6 @@ class Search extends React.Component {
     componentDidMount() {
     BooksAPI.getAll()
     .then(resp => {
-      console.log(resp);
       this.setState({ books: resp })
     });
   }
@@ -26,7 +25,7 @@ class Search extends React.Component {
   }
 
     searchBooks() {
-    if(this.state.searchTerm === '' || this.state.searchTerm === undefined) {
+    if((this.state.searchTerm === '') || (this.state.searchTerm === undefined)) {
       return this.setState({ results: [] });
     }
     BooksAPI.search(this.state.searchTerm.trim()).then(res => {
