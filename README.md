@@ -14,4 +14,4 @@ Navigate to `localhost:3000` in your browser to see the app! (A new tab should o
 
 # Credits
 
- [Ryan Waite's tutorial video](https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be) for this project.
+ [Ryan Waite's tutorial video](https://www.youtube.com/watch?v=acJHkd6K5kI&feature=youtu.be).
